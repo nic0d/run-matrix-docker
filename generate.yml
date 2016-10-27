@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+  vector:
+    image: allmende/vector:0.7.3
+    command: generate
+    volumes:
+      - /srv/matrix/data:/data
+    environment:
+      - SERVER_NAME=localhost
+
+  matrix:
+    image: allmende/synapse:0.16.1
+    command: generate
+    volumes:
+      - /srv/matrix/data:/data
+    environment:
+      - REPORT_STATS=no
+      - SERVER_NAME=localhost
+    depends_on:
+      - coturn
+
+  coturn:
+    image: allmende/coturn
+    command: generate
+    volumes:
+      - /srv/matrix/data:/data
+    environment:
+      - SERVER_NAME=localhost
