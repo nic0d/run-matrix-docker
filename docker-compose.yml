@@ -30,12 +30,3 @@ services:
       - "3478:3478/udp"
     volumes:
       - /srv/matrix/data:/data
-
-  sydent:
-      image: dumontn/sydent
-      command: start
-      ports:
-        - "8090:8090"
-      volumes:
-        - /srv/matrix/data:/data
-
