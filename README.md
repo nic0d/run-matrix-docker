@@ -12,14 +12,22 @@ VoIP communication server.
 
 Credits to https://github.com/allmende/docker-matrix
 
+# Requirements
+ 
+- docker
+- docker-compose
+- writable access right on the file system of the host by the user docker on the path /srv/matrix/data.
 
 
 # Config files generation & and server launch with Compose
 
-You can generate the example configuration into `/srv/matrix/data` with
-NB
+The deployment is divided in two phases. First, the configuration files and the certificate are generated. The second phase is the execution of the servers. Currently a manual step is required between the two phases (user registration activation).
 
-    docker-compose -f generate.yml up
+You can generate the example configuration into `/srv/matrix/data` with this command:
+
+```
+docker-compose -f generate.yml up
+```
 
 Then enable the registration on the server: (in the file homeserver.yml, which is available at /srv/matrix/data if you did not modify the generate.yml)
 
