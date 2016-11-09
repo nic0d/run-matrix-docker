@@ -49,13 +49,3 @@ At this point :
 
 You have to set the homeserver to https://localhost:8448 (for now it points to the server of allmende.io, it will change in the future).
 
-Debugging the images happens with
-
-    docker-compose down
-
-To debug the environments instead of the source images, use
-
-    docker-compose stop
-    docker-compose rm
-
-instead.
