@@ -3,30 +3,24 @@ version: '2'
 services:
 
   vector:
-    image: allmende/vector:0.7.3
+    image: nic0d/matrix-riot-docker:v0.8.1
     command: start
     ports:
       - "8080:8080"
     volumes:
       - /srv/matrix/data:/data
 
+# Use of collocated matrix + coturn servers
   matrix:
-    image: allmende/synapse:0.16.1
+    image: nic0d/docker-matrix:v0.18.1
     command: start
     ports:
       - "8448:8448"
-    volumes:
-      - /srv/matrix/data:/data
-
-  coturn:
-    image: allmende/coturn
-    command: start
+      - "3478:3478/udp"
     expose:
       - "3478"
       - "3479"
       - "5349"
       - "5350"
-    ports:
-      - "3478:3478/udp"
     volumes:
       - /srv/matrix/data:/data

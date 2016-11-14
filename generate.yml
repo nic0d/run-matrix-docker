@@ -3,28 +3,20 @@ version: '2'
 services:
 
   vector:
-    image: allmende/vector:0.7.3
+    image: nic0d/matrix-riot-docker:v0.8.1
     command: generate
     volumes:
       - /srv/matrix/data:/data
     environment:
       - SERVER_NAME=localhost
 
+# Use of collocated matrix + coturn servers
   matrix:
-    image: allmende/synapse:0.16.1
+    image: nic0d/docker-matrix:v0.18.1
     command: generate
     volumes:
       - /srv/matrix/data:/data
     environment:
       - REPORT_STATS=no
       - SERVER_NAME=localhost
-    depends_on:
-      - coturn
 
-  coturn:
-    image: allmende/coturn
-    command: generate
-    volumes:
-      - /srv/matrix/data:/data
-    environment:
-      - SERVER_NAME=localhost
