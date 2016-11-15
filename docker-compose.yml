@@ -12,7 +12,7 @@ services:
 
 # Use of collocated matrix + coturn servers
   matrix:
-    image: nic0d/docker-matrix:v0.18.1
+    image: nic0d/docker-matrix:debian
     command: start
     ports:
       - "8448:8448"
