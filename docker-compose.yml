@@ -3,7 +3,7 @@ version: '2'
 services:
 
   vector:
-    image: nic0d/matrix-riot-docker:v0.8.1
+    image: nic0d/matrix-riot-docker:v0.9.5
     command: start
     ports:
       - "8080:8080"
